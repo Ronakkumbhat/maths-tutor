@@ -79,7 +79,7 @@ class SelectGame(Gtk.Window):
         pygame.mixer.init()
 
         # Load and play the background music
-        pygame.mixer.music.load(global_var.data_dir+'/sounds/backgroundmusic.ogg')
+        pygame.mixer.music.load(global_var.data_dir+'sounds/backgroundmusic.ogg')
         # Set the volume
         pygame.mixer.music.set_volume(0.2)
         pygame.mixer.music.play(-1)  # -1 will loop the music indefinitely
@@ -117,6 +117,7 @@ class SelectGame(Gtk.Window):
 
         try:
             lang1 = gettext.translation(global_var.app_name, languages=[selected_language])
+            print(global_var.app_name)
             lang1.install()
             global _;
             _ = lang1.gettext
@@ -169,7 +170,7 @@ class SelectGame(Gtk.Window):
         header_bar.set_title(_("Maths-Tutor"))
         self.set_titlebar(header_bar)
 
-        self.icon_pixbuf = GdkPixbuf.Pixbuf.new_from_file(global_var.data_dir+"/icon.png")
+        self.icon_pixbuf = GdkPixbuf.Pixbuf.new_from_file(global_var.data_dir+"icon.png")
         self.set_icon(self.icon_pixbuf)
         
         # Horizontal box for Show/Hide Settings, About, User-Guide, and Quit
@@ -508,7 +509,7 @@ class SelectGame(Gtk.Window):
         self.pref.level = self.mode_combobox.get_active()
 
         file_path = self.operator_mapping.get(selected_operator, {}).get(selected_mode)
-        self.start_game(global_var.data_dir+"/lessons/"+file_path)
+        self.start_game(global_var.data_dir+"lessons/"+file_path)
 
 
     def start_game(self, file_path):

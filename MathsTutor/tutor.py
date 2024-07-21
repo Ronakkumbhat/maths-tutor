@@ -144,10 +144,10 @@ class MathsTutorBin(Gtk.Bin):
     #Function to play sounds
     def play_file(self, name, rand_range=1):
         if(rand_range == 1):
-            file_path_and_name = 'file:///'+global_var.data_dir+'/sounds/'+name+".ogg";
+            file_path_and_name = 'file:///'+global_var.data_dir+'sounds/'+name+".ogg";
         else:
             value = str(random.randint(1, rand_range))
-            file_path_and_name = 'file:///'+global_var.data_dir+'/sounds/'+name+"-"+value+".ogg";
+            file_path_and_name = 'file:///'+global_var.data_dir+'sounds/'+name+"-"+value+".ogg";
         self.player.set_state(Gst.State.READY)
         self.player.set_property('uri',file_path_and_name)
         self.player.set_state(Gst.State.PLAYING)
@@ -156,7 +156,7 @@ class MathsTutorBin(Gtk.Bin):
     #Function to set image from file 
     def set_image(self, name, rand_range):
 	    value = str(random.randint(1, rand_range))
-	    self.image.set_from_file(global_var.data_dir+"/images/"+name+"-"+value+".gif");
+	    self.image.set_from_file(global_var.data_dir+ "images/"+name+"-"+value+".gif")
 
     def speak(self, text, enqueue=False):
         if(enqueue == False):
